@@ -13,6 +13,11 @@ class Person {
     void updateMuscleMass(){
         muscle_mass = weight - weight*(body_fat/100);
     }
+
+public:
+    Person(double _weight, double _body_fat, double _calves, double _tights, double _back, double _chest, double _biceps): weight(_weight), body_fat(_body_fat), tights(_tights), back(_back), chest(_chest), biceps(_biceps){
+        updateMuscleMass();
+    }
 };
 
 int main() {
