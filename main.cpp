@@ -57,6 +57,13 @@ public:
     virtual void do_exercise(double &body_part, double &body_fat) {}
 };
 
+class Calf_raises: public Exercise {
+    int sets;
+    int reps;
+public:
+    Calf_raises(int _sets, int _reps): sets(_sets), reps(_reps) {}
+};
+
 int main() {
     return 0;
 }
