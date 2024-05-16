@@ -102,6 +102,18 @@ public:
     }
 };
 
+class Dumbbell_curl: public Exercise {
+    int sets;
+    int reps;
+    double weights;
+public:
+    Dumbbell_curl(int _sets, int _reps, double _weights): sets(_sets), reps(_reps), weights(_weights) {}
+    void do_exercise(double &biceps, double &body_fat) override {
+        double multiplier = (double)sets * reps * weights / 100;
+        biceps = biceps * multiplier;
+    }
+};
+
 int main() {
     return 0;
 }
