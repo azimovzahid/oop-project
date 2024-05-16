@@ -32,6 +32,24 @@ public:
         body_fat = _body_fat;
         updateMuscleMass();
     }
+    double getCalves() const{
+        return calves;
+    }
+    double getTights() const{
+        return tights;
+    }
+    double getBack() const{
+        return back;
+    }
+    double getChest() const{
+        return chest;
+    }
+    double getBiceps() const{
+        return biceps;
+    }
+    double getMuscleMass() const{
+        return muscle_mass;
+    }
 };
 
 int main() {
