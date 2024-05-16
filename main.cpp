@@ -68,6 +68,17 @@ public:
     }
 };
 
+class Lunges: public Exercise {
+    int sets;
+    int reps;
+public:
+    Lunges(int _sets, int _reps): sets(_sets), reps(_reps) {}
+    void do_exercise(double &thighs, double &body_fat) override {
+        double multiplier = (double)sets * reps / 100;
+        thighs = thighs * multiplier;
+    }
+};
+
 int main() {
     return 0;
 }
