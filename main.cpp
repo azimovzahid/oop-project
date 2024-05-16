@@ -9,6 +9,10 @@ class Person {
     double chest;
     double biceps;
     double muscle_mass;
+
+    void updateMuscleMass(){
+        muscle_mass = weight - weight*(body_fat/100);
+    }
 };
 
 int main() {
