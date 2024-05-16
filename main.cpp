@@ -91,6 +91,17 @@ public:
     }
 };
 
+class Pushups: public Exercise {
+    int sets;
+    int reps;
+public:
+    Pushups(int _sets, int _reps): sets(_sets), reps(_reps) {}
+    void do_exercise(double &chest, double &body_fat) override {
+        double multiplier = (double)sets * reps / 100;
+        chest = chest * multiplier;
+    }
+};
+
 int main() {
     return 0;
 }
