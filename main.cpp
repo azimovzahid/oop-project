@@ -52,6 +52,11 @@ public:
     }
 };
 
+class Exercise {
+public:
+    virtual void do_exercise(double &body_part, double &body_fat) {}
+};
+
 int main() {
     return 0;
 }
