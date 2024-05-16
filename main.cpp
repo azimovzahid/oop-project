@@ -62,6 +62,10 @@ class Calf_raises: public Exercise {
     int reps;
 public:
     Calf_raises(int _sets, int _reps): sets(_sets), reps(_reps) {}
+    void do_exercise(double &calves, double &body_fat) override {
+        double multiplier = (double)sets * reps / 100;
+        calves = calves * multiplier;
+    }
 };
 
 int main() {
