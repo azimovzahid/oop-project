@@ -10,7 +10,7 @@ class Person {
     double weight;
     double body_fat;
     double calves;
-    double tights;
+    double thighs;
     double back;
     double chest;
     double biceps;
@@ -22,7 +22,7 @@ class Person {
     }
 
 public:
-    Person(double _weight, double _body_fat, double _calves, double _tights, double _back, double _chest, double _biceps, const std::vector<Exercise *> &_plan): weight(_weight), body_fat(_body_fat), tights(_tights), back(_back), chest(_chest), biceps(_biceps), plan(_plan){
+    Person(double _weight, double _body_fat, double _calves, double _thighs, double _back, double _chest, double _biceps, const std::vector<Exercise *> &_plan): weight(_weight), body_fat(_body_fat), calves(_calves), thighs(_thighs), back(_back), chest(_chest), biceps(_biceps), plan(_plan){
         updateMuscleMass();
     }
     double getWeight() const{
@@ -42,8 +42,8 @@ public:
     double getCalves() const{
         return calves;
     }
-    double getTights() const{
-        return tights;
+    double getThighs() const{
+        return thighs;
     }
     double getBack() const{
         return back;
@@ -60,8 +60,8 @@ public:
     void setCalves(double new_calves) {
         calves = new_calves;
     }
-    void setThighs(double new_tighs) {
-        tights = new_tighs;
+    void setThighs(double new_thighs) {
+        thighs = new_thighs;
     }
     void setBack(double new_back) {
         back = new_back;
@@ -79,9 +79,10 @@ class Calf_raises: public Exercise {
     int reps;
 public:
     Calf_raises(int _sets, int _reps): sets(_sets), reps(_reps) {}
-    void do_exercise(double &calves, double &body_fat) override {
+    void do_exercise(Person &person, double &body_fat) override {
         double multiplier = (double)sets * reps / 100;
-        calves = calves * multiplier;
+        double calves = person.getCalves() * (1+multiplier);
+        person.setCalves(calves);
     }
 };
 
