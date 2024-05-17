@@ -1,4 +1,10 @@
 #include <iostream>
+#include <vector>
+
+class Exercise {
+public:
+    virtual void do_exercise(double &body_part, double &body_fat) {}
+};
 
 class Person {
     double weight;
@@ -9,13 +15,14 @@ class Person {
     double chest;
     double biceps;
     double muscle_mass;
+    std::vector<Exercise *> plan;
 
     void updateMuscleMass(){
         muscle_mass = weight - weight*(body_fat/100);
     }
 
 public:
-    Person(double _weight, double _body_fat, double _calves, double _tights, double _back, double _chest, double _biceps): weight(_weight), body_fat(_body_fat), tights(_tights), back(_back), chest(_chest), biceps(_biceps){
+    Person(double _weight, double _body_fat, double _calves, double _tights, double _back, double _chest, double _biceps, const std::vector<Exercise *> &_plan): weight(_weight), body_fat(_body_fat), tights(_tights), back(_back), chest(_chest), biceps(_biceps), plan(_plan){
         updateMuscleMass();
     }
     double getWeight() const{
@@ -50,11 +57,6 @@ public:
     double getMuscleMass() const{
         return muscle_mass;
     }
-};
-
-class Exercise {
-public:
-    virtual void do_exercise(double &body_part, double &body_fat) {}
 };
 
 class Calf_raises: public Exercise {
