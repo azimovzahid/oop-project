@@ -57,6 +57,21 @@ public:
     double getMuscleMass() const{
         return muscle_mass;
     }
+    void setCalves(double new_calves) {
+        calves = new_calves;
+    }
+    void setThighs(double new_tighs) {
+        tights = new_tighs;
+    }
+    void setBack(double new_back) {
+        back = new_back;
+    }
+    void setChest(double new_chest) {
+        chest = new_chest;
+    }
+    void setBiceps(double new_biceps) {
+        biceps = new_biceps;
+    }
 };
 
 class Calf_raises: public Exercise {
