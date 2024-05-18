@@ -74,6 +74,11 @@ public:
     void setBiceps(double new_biceps) {
         biceps = new_biceps;
     }
+    void exercise() {
+        for(int i = 0; i < plan.size(); i++) {
+            plan.at(i)->do_exercise(*this);
+        }
+    }
 };
 
 class Calf_raises: public Exercise {
