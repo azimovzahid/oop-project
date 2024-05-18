@@ -6,6 +6,7 @@ class Person;
 class Exercise {
 public:
     virtual void do_exercise(Person &person) {}
+    virtual ~Exercise() = default;
 };
 
 class Person {
@@ -77,6 +78,14 @@ public:
     void exercise() {
         for(int i = 0; i < plan.size(); i++) {
             plan.at(i)->do_exercise(*this);
+        }
+    }
+    Person(const Person &) = delete;
+    Person &operator=(const Person &) = delete;
+
+    ~Person(){
+        for(int i = 0; i < plan.size(); i++) {
+            delete plan.at(i);
         }
     }
 };
