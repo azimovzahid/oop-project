@@ -5,7 +5,7 @@ class Person;
 
 class Exercise {
 public:
-    virtual void do_exercise(Person &person, double &body_fat) {}
+    virtual void do_exercise(Person &person) {}
 };
 
 class Person {
@@ -81,7 +81,7 @@ class Calf_raises: public Exercise {
     int reps;
 public:
     Calf_raises(int _sets, int _reps): sets(_sets), reps(_reps) {}
-    void do_exercise(Person &person, double &body_fat) override {
+    void do_exercise(Person &person) override {
         double multiplier = (double)sets * reps / 100;
         double calves = person.getCalves() * (1+multiplier);
         person.setCalves(calves);
@@ -93,7 +93,7 @@ class Lunges: public Exercise {
     int reps;
 public:
     Lunges(int _sets, int _reps): sets(_sets), reps(_reps) {}
-    void do_exercise(Person &person, double &body_fat) override {
+    void do_exercise(Person &person) override {
         double multiplier = (double)sets * reps / 100;
         double thighs = person.getThighs() * (1 + multiplier);
         person.setThighs(thighs);
@@ -106,7 +106,7 @@ class Deadlift: public Exercise {
     double weights;
 public:
     Deadlift(int _sets, int _reps, double _weights): sets(_sets), reps(_reps), weights(_weights) {}
-    void do_exercise(Person &person, double &body_fat) override {
+    void do_exercise(Person &person) override {
         double multiplier = (double)sets * reps * (weights/10) / 100;
         double back = person.getBodyFat() * (1+multiplier);
         person.setBack(back);
@@ -118,7 +118,7 @@ class Pushups: public Exercise {
     int reps;
 public:
     Pushups(int _sets, int _reps): sets(_sets), reps(_reps) {}
-    void do_exercise(Person &person, double &body_fat) override {
+    void do_exercise(Person &person) override {
         double multiplier = (double)sets * reps / 100;
         double chest = person.getChest() * (1+multiplier);
         person.setChest(chest);
@@ -131,7 +131,7 @@ class Dumbbell_curl: public Exercise {
     double weights;
 public:
     Dumbbell_curl(int _sets, int _reps, double _weights): sets(_sets), reps(_reps), weights(_weights) {}
-    void do_exercise(Person &person, double &body_fat) override {
+    void do_exercise(Person &person) override {
         double multiplier = (double)sets * reps * weights / 100;
         double biceps = person.getBiceps() * (1+multiplier);
         person.setBiceps(biceps);
