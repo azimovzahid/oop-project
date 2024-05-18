@@ -120,7 +120,8 @@ public:
     Pushups(int _sets, int _reps): sets(_sets), reps(_reps) {}
     void do_exercise(Person &person, double &body_fat) override {
         double multiplier = (double)sets * reps / 100;
-        chest = chest * multiplier;
+        double chest = person.getChest() * (1+multiplier);
+        person.setChest(chest);
     }
 };
 
@@ -132,7 +133,8 @@ public:
     Dumbbell_curl(int _sets, int _reps, double _weights): sets(_sets), reps(_reps), weights(_weights) {}
     void do_exercise(Person &person, double &body_fat) override {
         double multiplier = (double)sets * reps * weights / 100;
-        biceps = biceps * multiplier;
+        double biceps = person.getBiceps() * (1+multiplier);
+        person.setBiceps(biceps);
     }
 };
 
