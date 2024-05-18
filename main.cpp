@@ -85,6 +85,8 @@ public:
         double multiplier = (double)sets * reps / 100;
         double calves = person.getCalves() * (1+multiplier);
         person.setCalves(calves);
+        double newBodyFat = person.getBodyFat() * (1-multiplier/10);
+        person.setBodyFat(newBodyFat);
     }
 };
 
@@ -97,6 +99,8 @@ public:
         double multiplier = (double)sets * reps / 100;
         double thighs = person.getThighs() * (1 + multiplier);
         person.setThighs(thighs);
+        double newBodyFat = person.getBodyFat() * (1-multiplier/10);
+        person.setBodyFat(newBodyFat);
     }
 };
 
@@ -110,6 +114,8 @@ public:
         double multiplier = (double)sets * reps * (weights/10) / 100;
         double back = person.getBodyFat() * (1+multiplier);
         person.setBack(back);
+        double newBodyFat = person.getBodyFat() * (1-multiplier/10);
+        person.setBodyFat(newBodyFat);
     }
 };
 
@@ -122,6 +128,8 @@ public:
         double multiplier = (double)sets * reps / 100;
         double chest = person.getChest() * (1+multiplier);
         person.setChest(chest);
+        double newBodyFat = person.getBodyFat() * (1-multiplier/10);
+        person.setBodyFat(newBodyFat);
     }
 };
 
@@ -135,6 +143,8 @@ public:
         double multiplier = (double)sets * reps * weights / 100;
         double biceps = person.getBiceps() * (1+multiplier);
         person.setBiceps(biceps);
+        double newBodyFat = person.getBodyFat() * (1-multiplier/10);
+        person.setBodyFat(newBodyFat);
     }
 };
 
