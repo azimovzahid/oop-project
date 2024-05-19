@@ -126,7 +126,7 @@ public:
     Deadlift(int _sets, int _reps, double _weights): sets(_sets), reps(_reps), weights(_weights) {}
     void do_exercise(Person &person) override {
         double multiplier = (double)sets * reps * (weights/10) / 100;
-        double back = person.getBodyFat() * (1+multiplier);
+        double back = person.getBack() * (1+multiplier);
         person.setBack(back);
         double newBodyFat = person.getBodyFat() * (1-multiplier/10);
         person.setBodyFat(newBodyFat);
