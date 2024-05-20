@@ -185,7 +185,30 @@ TEST(PersonTest, Initialization) {
     return true;
 }
 
+TEST(PersonTest, ExerciseEffect) {
+    std::vector<Exercise *> plan;
+    plan.push_back(new Calf_raises(3, 15));
+    plan.push_back(new Lunges(3, 15));
+    plan.push_back(new Deadlift(3, 10, 100));
+    plan.push_back(new Pushups(3, 20));
+    plan.push_back(new Dumbbell_curl(3, 15, 20));
+
+    Person person(80, 20, 30, 40, 50, 60, 20, plan);
+    person.exercise();
+
+    ASSERT_EQ(person.getCalves(), 43.5);
+    ASSERT_EQ(person.getThighs(), 58);
+    ASSERT_EQ(person.getBack(), 200);
+    ASSERT_EQ(person.getChest(), 96);
+    ASSERT_EQ(person.getBiceps(), 200);
+    ASSERT_TRUE(person.getBodyFat() < 2);
+    ASSERT_TRUE(person.getMuscleMass() > 64);
+
+    return true;
+}
+
 int main() {
     RUN_TEST(PersonTest, Initialization);
+    RUN_TEST(PersonTest, ExerciseEffect);
     return 0;
 }
