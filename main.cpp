@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "test.h"
 
 class Person;
 
@@ -162,6 +163,29 @@ public:
     }
 };
 
+TEST(PersonTest, Initialization) {
+    std::vector<Exercise *> plan;
+    plan.push_back(new Calf_raises(3, 15));
+    plan.push_back(new Lunges(3, 15));
+    plan.push_back(new Deadlift(3, 10, 100));
+    plan.push_back(new Pushups(3, 20));
+    plan.push_back(new Dumbbell_curl(3, 15, 20));
+
+    Person person(80, 20, 30, 40, 50, 60, 20, plan);
+
+    ASSERT_EQ(person.getWeight(), 80);
+    ASSERT_EQ(person.getBodyFat(), 20);
+    ASSERT_EQ(person.getCalves(), 30);
+    ASSERT_EQ(person.getThighs(), 40);
+    ASSERT_EQ(person.getBack(), 50);
+    ASSERT_EQ(person.getChest(), 60);
+    ASSERT_EQ(person.getBiceps(), 20);
+    ASSERT_EQ(person.getMuscleMass(), 64);
+
+    return true;
+}
+
 int main() {
+    RUN_TEST(PersonTest, Initialization);
     return 0;
 }
